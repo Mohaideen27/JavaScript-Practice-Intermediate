@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+  </head>
+  <body>
+    <h1>Form Validation</h1>
+    <script>
+      function validateForm() {
+        var name = document.myForm.name.value;
+        var pas = document.myForm.pas.value;
+        var x = document.myForm.email.value;
+        var atPosition = x.indexOf("@");
+        var dotPosition = x.lastIndexOf(".");
+        if (name == null || name == "") {
+          alert("name cant be blank");
+          return false;
+        } else if (pas.lenght < 6) {
+          alert("password must be at least 6 characters long");
+          return false;
+        } else if (
+          atPosition < 1 ||
+          dotPosition < atPosition + 2 ||
+          dotPosition + 2 == x.lenght
+        ) {
+          alert(
+            "please enter a valid email address \n atPostion; " +
+              atPosition +
+              "\n dotPostion :" +
+              dotPosition,
+          );
+        }
+      }
+    </script>
+    <form
+      action=""
+      name="myForm"
+      method="post"
+      onsubmit="return validateForm();"
+    >
+      <label for="">Name :</label>
+      <br />
+      <input type="text" name="name" />
+      <br />
+      <label for="">Password :</label>
+      <br />
+      <input type="password" name="pas" />
+      <br />
+      <label for="">email :</label>
+      <br />
+      <input type="text" name="email" />
+      <br />
+      <input type="submit" value="register" />
+    </form>
+  </body>
+</html>
