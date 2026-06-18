@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promises Practice</title>
+  </head>
+  <body>
+    <!-- <script>
+      const simpProm = new Promise((resolve, reject) => {
+        resolve("hi i am a promises");
+      });
+      simpProm.then((msg) => {
+        console.log(msg);
+      });
+    </script>
+    <script>
+      const prom2 = new Promise((resolve, reject) => {
+        // resolve("")
+        reject("I forgot to do my chores");
+      });
+      prom2.then().catch((msg) => {
+        console.log(msg);
+      });
+    </script>
+    <script>
+      const coinToss = new Promise((resolve, reject) => {
+        let num = Math.random();
+        if (num > 0.5) {
+          resolve("heads");
+        } else {
+          reject("tails");
+        }
+        console.log(num);
+      });
+      coinToss
+        .then((msg) => {
+          console.log(msg);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    </script>
+     -->
+    <!-- <script>
+      function delay(ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve("done waiting");
+          }, ms);
+        });
+      }
+      delay(10000).then((msg) => {
+        console.log(msg);
+      });
+      console.log("written after promises");
+      console.log("Setting alarm...");
+
+      delay(2000).then((message) => {
+        console.log("Wake up!");
+      });
+    </script> -->
+    <!-- <script>
+      const mathChain = new Promise((resolve, reject) => {
+        resolve(5);
+      });
+      mathChain
+        .then((num) => {
+          return num * 2;
+        })
+        .then((num) => {
+          return num + 10;
+        })
+        .then((num) => {
+          console.log(num);
+        });
+    </script> -->
+    <!-- <script>
+      const num = new Promise((resolve) => {
+        resolve(5);
+      });
+      num
+        .then((n) => {
+          console.log("resolve 1");
+        })
+        .then((n) => {
+          throw new Error("something broke");
+        })
+        .then((number) => {
+          console.log("you will never see this message");
+        })
+        .catch((msg) => {
+          console.log(msg);
+        });
+    </script> -->
+    <!-- <script>
+      function fetchUserData(username) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            if (username === "admin") {
+              resolve({ name: "Admin", role: "Superuser" });
+            } else {
+              reject("user not found");
+            }
+          }, 2000);
+        });
+      }
+      fetchUserData("admin")
+        .then((user) => {
+          console.log(user.name, user.role);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      fetchUserData("john")
+        .then((user) => {
+          console.log(user);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    </script> -->
+
+    <!-- <script>
+      const prom1 = new Promise((resolve) => {
+        setTimeout(() => {
+          resolve("task one completed");
+        }, 1000);
+      });
+      const prom2 = new Promise((resolve) => {
+        setTimeout(() => {
+          resolve("task two completed");
+        }, 2000);
+      });
+      const prom3 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          reject("task three completed");
+        }, 3000);
+      });
+      Promise.all([prom1, prom2, prom3])
+        .then((arr) => {
+          console.log("all task finished");
+          console.log(arr);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    </script> -->
+    <script>
+      function fetchUserData(username) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            if (username === "admin") {
+              resolve({ name: "Admin", role: "Superuser" });
+            } else {
+              reject("user not found");
+            }
+          }, 2000);
+        });
+      }
+      async function displayUser() {
+        try {
+          console.log("fetching data");
+          const user = await fetchUserData("admin");
+          console.log("Data received:", user.name);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+      displayUser();
+    </script>
+  </body>
+</html>
