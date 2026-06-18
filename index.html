@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <h1>Browser Object Model</h1>
+    <input type="button" value="click" onclick="msg()" />
+    <input type="button" value="delete Record" onclick="cnf()" />
+    <input type="button" value="click" onclick="prpt()" />
+    <input type="button" value="google" onclick="opn()" />
+    <input type="button" value="timeout" onclick="tot()" />
+    <h1>History object model</h1>
+    <ul>
+      <li>forward</li>
+      <li>back</li>
+      <li>go</li>
+    </ul>
+    <h1>Navigator Object</h1>
+    <h4>properties of Navigator Object</h4>
+    <ul>
+      <li>appName</li>
+      <li>appVersion</li>
+      <li>appCodeName</li>
+      <li>cookieEnabled</li>
+      <li>userAgent</li>
+      <li>language</li>
+      <li>userLanguage</li>
+      <li>plugins</li>
+      <li>systemLanguage</li>
+      <li>mimeTypes[]</li>
+      <li>platform</li>
+      <li>Online</li>
+    </ul>
+    <h4>Methods of Navigator Object</h4>
+    <ul>
+      <li>javaEnabled</li>
+      <li>taintEnabled</li>
+    </ul>
+    <h1>Screen Object</h1>
+    <h4>properties of Screen Object</h4>
+    <ul>
+      <li>width</li>
+      <li>height</li>
+      <li>availWidth</li>
+      <li>availHeight</li>
+      <li>colorDept</li>
+      <li>pixelDepth</li>
+    </ul>
+    <script>
+      function msg() {
+        alert("hello Alert Box");
+      }
+
+      function cnf() {
+        var v = confirm("are you sure?");
+        if (v == true) {
+          alert("ok");
+        } else {
+          alert("cancel");
+        }
+      }
+
+      function prpt() {
+        let userName = prompt("Please enter your name:", "Guest");
+        if (userName === null) {
+          console.log("User clicked 'Cancel' or closed the dialog.");
+        } else if (userName.trim() === "") {
+          console.log("User clicked 'OK' but left the text box empty.");
+        } else {
+          alert(`Hello, ${userName}! Welcome to our site.`);
+        }
+      }
+
+      function opn() {
+        open("http://www.google.com");
+      }
+
+      function tot() {
+        setTimeout(function () {
+          alert("Welcome to browser object model after 2s");
+        }, 2000);
+      }
+      document.writeln("<br/>screen width " + screen.width);
+      document.writeln("<br/>screen height " + screen.height);
+      document.writeln("<br/>screen availWidth " + screen.availWidth);
+      document.writeln("<br/>screen availHeight " + screen.availHeight);
+      document.writeln("<br/>screen colorDept " + screen.colorDepth);
+      document.writeln("<br/>screen pixelDept " + screen.pixelDepth);
+    </script>
+  </body>
+</html>

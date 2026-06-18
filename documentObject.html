@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="dom.js"></script>
+  </head>
+  <body>
+    <h1>Document Object</h1>
+    <h4>Methods of document Object</h4>
+    <ul>
+      <li>write</li>
+      <li>writeln</li>
+      <li>getElementById</li>
+      <li>getElementByName</li>
+      <li>getElementByTagName</li>
+      <li>getElementByClassName</li>
+    </ul>
+    <h4>write and writeln</h4>
+    <script>
+      document.writeln("hello welcome");
+      document.write("hello welcome");
+    </script>
+    <h4>Accessing Field Value by document object</h4>
+    <script>
+      function printValue() {
+        var name = document.form1.name.value;
+        alert("welcome " + name);
+      }
+    </script>
+    <form action="" name="form1">
+      <label for="">Enter Name :</label>
+      <input type="text" name="name" />
+      <input type="button" onclick="printValue()" value="print name" />
+    </form>
+    <h4>getElementById</h4>
+    <script>
+      function getCube() {
+        var number = document.getElementById("number").value;
+        alert(number ** 3);
+      }
+    </script>
+    <form action="">
+      <label for="">Enter No :</label>
+      <input type="number" name="number" id="number" />
+      <br />
+      <input type="button" value="cube" onclick="getCube()" />
+    </form>
+    <h4>getElementByClassName</h4>
+    <div class="class">item 1</div>
+    <div class="class">item 2</div>
+    <div class="class">item 3</div>
+    <script>
+      var x = document.getElementsByClassName("class");
+      document.writeln(
+        "on calling x, It will return an arry like object <br/>" + x,
+      );
+    </script>
+    <hr />
+    <h4>getElementByName</h4>
+    <script>
+      function totalElements() {
+        var allgenders = document.getElementsByName("gender");
+        alert("total genders " + allgenders.length);
+      }
+    </script>
+    <form action="">
+      <label for="">male</label>
+      <input type="radio" name="gender" value="male" id="" />
+      <label for="">Female</label>
+      <input type="radio" name="gender" value="female" id="" />
+      <input
+        type="button"
+        onclick="totalElements()"
+        value="total genders"
+        id=""
+      />
+    </form>
+    <h4>getElementByTagName</h4>
+    <script>
+      function countpara() {
+        var totalpara = document.getElementsByTagName("p");
+        alert("total p tags are: " + totalpara.length);
+      }
+    </script>
+    <p>This is a paragraph</p>
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam odio
+      molestias dolorem possimus esse tenetur neque hic, aperiam fugit eaque
+      officia iusto ab veniam sint laboriosam voluptas, consectetur sequi quae
+      officiis ipsam?
+    </p>
+  </body>
+  <input type="button" value="p tags" onclick="countpara()" />
+  <h4>innerHTML</h4>
+  <script>
+    function showCommentForm() {
+      var data = `<label for="">Name </label>
+    <input type="text" name="name" />
+    <br />
+    <label for="">comment: </label>
+    <br />
+    <textarea rows="5" cols="80" name="" id=""></textarea>
+    <br /><input type="submit" value="post comment" />`;
+      document.getElementById("myLocation").innerHTML = data;
+    }
+  </script>
+  <form action="" name="myForm">
+    <input type="button" value="comment" onclick="showCommentForm()" />
+    <div id="myLocation"></div>
+  </form>
+</html>
