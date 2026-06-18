@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>callApplyBind Methods</title>
+  </head>
+  <body>
+    <script>
+      var emp = {
+        fullAddress: function () {
+          return this.company + this.city + this.state;
+        },
+      };
+      var address = {
+        company: "javascript",
+        city: "Noida",
+        state: "UP",
+      };
+      document.writeln(emp.fullAddress.call(address));
+      document.writeln(emp.fullAddress.apply(address));
+      var lang = "java";
+      function lang_name(call) {
+        call();
+      }
+      var obj = {
+        lang: "javascript",
+        language: function () {
+          document.writeln(this.lang + "is a popular programming language");
+        },
+      };
+      lang_name(obj.language);
+      lang_name(obj.language.bind(obj));
+    </script>
+  </body>
+</html>
