@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>window events</title>
+    <style>
+      #bg {
+        width: 200px;
+        height: 200px;
+        border: 4px solid blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Window events</h1>
+    <h4>onload Event</h4>
+    <div id="bg"></div>
+    <script>
+      window.onload = () => {
+        document.getElementById("bg").style.backgroundColor = "red";
+        document.getElementById("bg").style.width = "300px";
+        document.getElementById("bg").style.height = "300px";
+      };
+    </script>
+    <h4>Onresize Event</h4>
+    <p onresize="fun()"></p>
+    <p>This is an example of using onresize attribute</p>
+    <p>try to resize the browser window to see the effect</p>
+    <p id="para"></p>
+    <p>you have resized the window <span id="s1">0</span>times.</p>
+    <script>
+      function fun() {
+        var res =
+          "width = " +
+          window.outerWidth +
+          "<br/>" +
+          "height = " +
+          window.outerHeight;
+        var res1 = 1;
+        document.getElementByI;
+        d("para").innerHTML = res;
+        document.getElementById("s1").innerHTML = res1;
+      }
+    </script>
+  </body>
+</html>
